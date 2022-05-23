@@ -452,7 +452,9 @@ final class FactoryTest extends TestCase
 
         $this->assertInstanceOf(Car::class, $instance);
         $this->assertInstanceOf(EngineMarkOne::class, $instance->getEngine());
-        $this->assertEquals(42, $instance->getEngine()->getNumber());
+        $this->assertEquals(42, $instance
+            ->getEngine()
+            ->getNumber());
     }
 
     public function testCreateFactory(): void
@@ -817,7 +819,9 @@ final class FactoryTest extends TestCase
 
         $object = $factory->create(NullableConcreteDependency::class);
 
-        $this->assertInstanceOf(EngineMarkOne::class, $object->getCar()->getEngine());
+        $this->assertInstanceOf(EngineMarkOne::class, $object
+            ->getCar()
+            ->getEngine());
     }
 
     public function testIntegerIndexedConstructorArguments(): void
@@ -1526,7 +1530,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkOne::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkOne::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testFactoryHasPriorityInReference(): void
@@ -1545,7 +1551,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkTwo::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkTwo::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testAliasedDynamicReferenceInConstructor(): void
@@ -1563,7 +1571,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkOne::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkOne::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testContainerInterfaceDynamicReferenceInConstructor(): void
@@ -1585,7 +1595,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkOne::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkOne::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testContainerInterfaceInDynamicReferenceWorkWithContainer(): void
@@ -1608,7 +1620,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkOne::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkOne::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testFactoryHasPriorityInDynamicReference(): void
@@ -1627,7 +1641,9 @@ final class FactoryTest extends TestCase
             ]
         );
 
-        $this->assertInstanceOf(EngineMarkTwo::class, $factory->create(Car::class)->getEngine());
+        $this->assertInstanceOf(EngineMarkTwo::class, $factory
+            ->create(Car::class)
+            ->getEngine());
     }
 
     public function testFactoryHasPriorityInClosureViaReference(): void
